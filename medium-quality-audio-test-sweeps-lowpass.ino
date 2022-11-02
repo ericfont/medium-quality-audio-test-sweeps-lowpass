@@ -20,14 +20,14 @@
 #include <SerialFlash.h>
 
 // GUItool: begin automatically generated code
-AudioSynthToneSweep      tonesweep1; //xy=613,773
-AudioFilterBiquad        biquad1;        //xy=767,772
+AudioSynthToneSweep      tonesweep; //xy=613,773
+AudioFilterBiquad        biquad;        //xy=767,772
 AudioMixer4              mixer2;         //xy=933,809
 AudioMixer4              mixer1;         //xy=935,737
 AudioOutputMQS           mqs1; //xy=1079,768
-AudioConnection          patchCord1(tonesweep1, biquad1);
-AudioConnection          patchCord2(biquad1, 0, mixer1, 0);
-AudioConnection          patchCord3(biquad1, 0, mixer2, 0);
+AudioConnection          patchCord1(tonesweep, biquad);
+AudioConnection          patchCord2(biquad, 0, mixer1, 0);
+AudioConnection          patchCord3(biquad, 0, mixer2, 0);
 AudioConnection          patchCord4(mixer2, 0, mqs1, 1);
 AudioConnection          patchCord5(mixer1, 0, mqs1, 0);
 // GUItool: end automatically generated code
@@ -89,10 +89,10 @@ void setup(void)
   AudioMemory (8);
   Serial.println ("setup done");
 
-  biquad1.setLowpass(0,10000);
-  biquad1.setLowpass(1,10000);
-  biquad1.setLowpass(2,10000);
-  biquad1.setLowpass(3,10000);
+  biquad.setLowpass(0,10000);
+  biquad.setLowpass(1,10000);
+  biquad.setLowpass(2,10000);
+  biquad.setLowpass(3,10000);
 
   for (int i = 1; i <= 3; i++)
     do_sweep (i);
